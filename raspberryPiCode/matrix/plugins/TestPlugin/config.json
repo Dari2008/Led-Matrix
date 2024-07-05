@@ -1,0 +1,8 @@
+{
+    "name": "TestPlugin",
+    "settingsKeys": [
+        "testSetting"
+    ],
+    "description": "This is a test plugin",
+    "version": "1.0"
+}

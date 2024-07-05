@@ -1,0 +1,9 @@
+{
+    "name": "Snake",
+    "settingsKeys": [
+        "snakeSpeed",
+        "snakePartSize"
+    ],
+    "description": "The classic game snake",
+    "version": "1.0"
+}

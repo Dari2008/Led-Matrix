@@ -1,0 +1,752 @@
+<!DOCTYPE html>
+<html class="dark" lang="de" selected="image">
+    <head>
+        <meta lang="de" charset='utf-8'>
+        <meta http-equiv='X-UA-Compatible' content='IE=edge'>
+        <title>Page Title</title>
+        <meta name='viewport' content='width=device-width, initial-scale=1'>
+
+        <!-- CSS -->
+        <link rel='stylesheet' type='text/css' media='screen' href='Variables.css'>
+        <link rel='stylesheet' type='text/css' media='screen' href='main.css'>
+
+        <script src='Matrix.js'></script>
+        <script src='Selector.js'></script>
+        <script src='Actions.js'></script>
+        <script src='alert.js'></script>
+
+        <!-- Ajax -->
+        <script src='https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js'></script>
+
+    </head>
+    <body onload="loadAlert()">
+        
+        <div id="navBar">
+            <div class="navBarItem selected" id="navImage">Image</div>
+            <div class="navBarItem" id="navAnimation">Animation</div>
+            <div class="navBarItem" id="navPlugin">Plugins</div>
+        </div>
+
+        <script>
+            document.getElementById("navImage").addEventListener("click", function(){
+                document.getElementById("navImage").classList.add("selected");
+                document.getElementById("navAnimation").classList.remove("selected");
+                document.getElementById("navPlugin").classList.remove("selected");
+                document.documentElement.setAttribute("selected", "image");
+            });
+
+            document.getElementById("navAnimation").addEventListener("click", function(){
+                document.getElementById("navImage").classList.remove("selected");
+                document.getElementById("navAnimation").classList.add("selected");
+                document.getElementById("navPlugin").classList.remove("selected");
+                document.documentElement.setAttribute("selected", "animation");
+            });
+
+            document.getElementById("navPlugin").addEventListener("click", function(){
+                document.getElementById("navImage").classList.remove("selected");
+                document.getElementById("navAnimation").classList.remove("selected");
+                document.getElementById("navPlugin").classList.add("selected");
+                document.documentElement.setAttribute("selected", "plugin");
+            });
+        </script>
+
+        <div class="contentList" id="contentListImages">
+            <table>
+                <thead>
+                    <tr>
+                        <th>Name</th>
+                        <th>Width</th>
+                        <th>Height</th>
+                        <th>Uploaded</th>
+                    </tr>
+                </thead>
+                <tbody id="contentListBodyImages">
+                </tbody>
+            </table>
+        </div>
+
+        <div class="contentList" id="contentListGifs">
+            <table>
+                <thead>
+                    <tr>
+                        <th>Name</th>
+                        <th>Frames</th>
+                        <th>F-Delay</th>
+                        <th>Speed Multiplier</th>
+                        <th>Uploaded</th>
+                    </tr>
+                </thead>
+                <tbody id="contentListBodyGif">
+                </tbody>
+            </table>
+        </div>
+
+        <div class="contentList" id="contentListPlugins">
+            <table>
+                <thead>
+                    <tr>
+                        <th>Name</th>
+                        <th>Uploaded</th>
+                    </tr>
+                </thead>
+                <tbody id="contentListBodyPlugins">
+                </tbody>
+            </table>
+        </div>
+
+        <div class="footerOptions">
+            <div id="clear" onclick="Actions.clear()">Clear</div>
+            <div id="show" onclick="show()">Show</div>
+            <div id="upload" onclick="edit()">Edit</div>
+            <div id="upload" onclick="upload()">Upload</div>
+            <div id="delete" delete onclick="deleteE()">Delete</div>
+        </div>
+
+        <dialog id="editingDialog">
+            <button class="close" onclick="closeEditor()" >&times;</button>
+            <div id="editingContext" mode="gif">
+                <h2 id="name">gif.gif</h2>
+                <p id="widthP">Width:</p> 
+                <input type="number" id="width" inputmode="numeric" value="100" step="1">
+
+                <p id="heightP">Height:</p> 
+                <input type="number" id="height" inputmode="numeric" value="100" step="1">
+
+                <p id="resizeMethodP">Resize Method:</p>
+                <select name="resizeMethod" id="resizeMethod">
+                    <option value="NEAREST">NEAREST</option>
+                    <option value="BOX">BOX</option>
+                    <option value="BILINEAR">BILINEAR</option>
+                    <option value="HAMMING">HAMMING</option>
+                    <option value="BICUBIC">BICUBIC</option>
+                    <option value="LANCZOS">LANCZOS</option>
+                </select>
+
+                <p id="paddingXP">Padding X:</p> 
+                <select name="paddingX" id="paddingX">
+                    <option value="left">Left</option>
+                    <option value="center">Center</option>
+                    <option value="right">Right</option>
+                </select>
+
+                <p id="paddingYP">Padding Y:</p> 
+                <select name="paddingY" id="paddingY">
+                    <option value="top">Top</option>
+                    <option value="center">Center</option>
+                    <option value="bottom">Bottom</option>
+                </select>
+
+                <p id="offsetXP">X Offset:</p>
+                <input type="number" id="xOffset" inputmode="numeric" value="0" step="1">
+
+                <p id="offsetYP">Y Offset:</p>
+                <input type="number" id="yOffset" inputmode="numeric" value="0" step="1">
+
+                <p id="backgroundLedStripMethodP">BG Method:</p>
+                <select name="backgroundLedStripMethod" id="backgroundLedStripMethod">
+                    <option value="none">None</option>
+                    <option value="averageColor">Average Color</option>
+                    <option value="averageColorLines">Average Color Lines</option>
+                    <option value="outerRing">Outer Ring</option>
+                </select>
+
+                <p id="backgroundImageMethodTimingP">BG Timing:</p>
+                <select name="backgroundImageMethodTiming" id="backgroundImageMethodTiming">
+                    <option value="everyFrame">Every Frame</option>
+                    <option value="firstFrame">First Frame</option>
+                </select>
+
+                <p id="backgroundBrightnessP">BG Brightness:</p>
+                <input type="number" id="backgroundBrightness" inputmode="numeric" value="100" min="1" max="100" step="1">
+
+                <p id="brightnessP">Brightness:</p>
+                <input type="number" id="brightness" inputmode="numeric" value="100" min="1" max="100" step="1">
+
+                <p id="speedMultiplyerP">Speed multiplicator:</p> 
+                <input type="number" id="speedMultiplyer" inputmode="numeric" value="1" min="0.01" max="10" step="0.1">
+
+                <p id="fdelayP">Frame delay:</p> 
+                <input type="number" id="fdelay" inputmode="numeric" value="100" min="10" max="1000" step="10">
+
+                <p id="countP">Loop Count:</p>
+                <input type="number" id="count" inputmode="numeric" value="0" min="0" max="100" step="1">
+
+                <p id="loopP">Infinity Loop:</p>
+                <select name="loop" id="loop">
+                    <option value="true">True</option>
+                    <option value="false">False</option>
+                </select>
+
+                <button id="save">Save</button>
+
+            </div>
+
+        </dialog>
+
+        <dialog id="editingPlugin">
+            <button class="close" onclick="closePluginEditor()" >&times;</button>
+            <div id="pluginEditingContext">
+                <h2 id="pluginName">plugin</h2>
+                <p id="descriptionP">Description:</p>
+                <p id="description"></p>
+                <p id="versionP">Version:</p>
+                <p id="version"></p>
+                <p id="uploadedP">Uploaded:</p>
+                <p id="uploaded"></p>
+                <p id="settingsP">Settings:</p>
+                <div id="settings">
+                    <table>
+                        <thead>
+                            <tr>
+                                <th id="nameTh">Name</th>
+                                <th id="valueTh">Value</th>
+                                <th id="defaultTh">Default</th>
+                            </tr> 
+                        </thead>
+                        <tbody id="settingsBody">
+                        </tbody>
+                    </table>
+                </div>
+                <button id="pluginsave">Save</button>
+            </div>
+        </dialog>
+
+        <script>
+
+
+            function closeEditor(){
+                let dialog = document.getElementById("editingDialog");
+                dialog.close();
+                document.getElementById("save").onclick = undefined;
+            }
+
+            function closePluginEditor(){
+                let dialog = document.getElementById("editingPlugin");
+                dialog.close();
+                document.getElementById("pluginsave").onclick = undefined;
+            }
+
+            function edit(){
+                let selected = Selector.getSelected();
+                if(selected == undefined){
+                    alert("No item selected", AlertType.ERROR, 3000);
+                    return;
+                }
+                if(selected == null){
+                    alert("No item selected", AlertType.ERROR, 3000);
+                    return;
+                }
+                let type = selected.getType();
+
+                if(type == null){
+                    alert("No item selected", AlertType.ERROR, 3000);
+                    return;
+                }
+                if(selected.getName() == null){
+                    alert("No item selected", AlertType.ERROR, 3000);
+                    return;
+                }
+
+                if(type == "gif" || type == "image"){
+                    showEditDialog(selected);
+                }else{
+                    showEditDialogPlugin(selected);
+                }
+
+            }
+
+            function showEditDialogPlugin(selected){
+                let dialog = document.getElementById("editingPlugin");
+                let pluginEditingContext = document.getElementById("pluginEditingContext");
+                let pluginName = document.getElementById("pluginName");
+                let description = document.getElementById("description");
+                let version = document.getElementById("version");
+                let uploaded = document.getElementById("uploaded");
+                let settingsBody = document.getElementById("settingsBody");
+
+                function setObj(obj, key, formatValue = (val) => val){
+                    let val = getOrDefault(formatValue(selected.get(key)), "");
+                    obj.innerHTML = val;
+                    if(val == ""){
+                        obj.classList.add("empty");
+                    }
+                }
+
+                setObj(pluginName, "name");
+                setObj(description, "description");
+                setObj(version, "version");
+                setObj(uploaded, "uploaded", (val) => formatDate(new Date(val*1000), true));
+
+                let original = {};
+
+                settingsBody.innerHTML = "";
+                for(let key in selected.get("settings")){
+                    let row = document.createElement("tr");
+                    let name = document.createElement("td");
+                    let value = document.createElement("td");
+                    let def = document.createElement("td");
+
+                    let valueSpan = document.createElement("textarea");
+                    valueSpan.classList.add("value");
+                    valueSpan.spellcheck = false;
+
+
+                    let nameVal = selected.get("settings")[key].name;
+                    let valueVal = selected.get("settings")[key].value;
+                    let defVal = selected.get("settings")[key].default;
+
+                    name.innerHTML = nameVal == "" ? "\"\"" : nameVal;
+                    valueSpan.innerHTML = valueVal == defVal ? "" : valueVal;
+                    def.innerHTML = defVal == "" ? "\"\"" : defVal;
+
+                    valueSpan.placeholder = defVal == "" ? "\"\"" : defVal;
+
+                    original[nameVal] = {name: nameVal, value: valueVal, def: defVal, valueSpan: valueSpan};
+
+                    value.appendChild(valueSpan);
+
+                    row.appendChild(name);
+                    row.appendChild(value);
+                    row.appendChild(def);
+
+                    settingsBody.appendChild(row);
+                }
+
+                dialog.showModal();
+
+                document.getElementById("pluginsave").onclick = async function(){
+                    let data = {};
+
+                    for(let key in original){
+                        let value = original[key].valueSpan.value;
+                        if(value == "")value = original[key].def;
+                        if(value == original[key].value){
+                            continue;
+                        }
+                        data[original[key].name] = value;
+                    }
+
+                    if(Object.keys(data).length == 0){
+                        closePluginEditor();
+                        return;
+                    }
+
+                    await Actions.edit("plugin", selected.getName(), data);
+                    closePluginEditor();
+                    loadAll();
+                };
+
+            }
+
+            function showEditDialog(selected){
+                let dialog = document.getElementById("editingDialog");
+                let editingContext = document.getElementById("editingContext");
+                let name = document.getElementById("name");
+                let speedMultiplyer = document.getElementById("speedMultiplyer");
+                let fdelay = document.getElementById("fdelay");
+                let width = document.getElementById("width");
+                let height = document.getElementById("height");
+                let paddingX = document.getElementById("paddingX");
+                let paddingY = document.getElementById("paddingY");
+                let xOffset = document.getElementById("xOffset");
+                let yOffset = document.getElementById("yOffset");
+                let count = document.getElementById("count");
+                let loop = document.getElementById("loop");
+                let resizeMethod = document.getElementById("resizeMethod");
+                let backgroundLedStripMethod = document.getElementById("backgroundLedStripMethod");
+                let backgroundImageMethodTiming = document.getElementById("backgroundImageMethodTiming");
+                let brightness = document.getElementById("brightness");
+                let backgroundBrightness = document.getElementById("backgroundBrightness");
+
+                name.innerHTML = selected.getName();
+
+                let type = selected.getType();
+
+                editingContext.setAttribute("mode", type);
+
+                dialog.showModal();
+
+                let original = {};
+
+                original.width = getOrDefault(selected.get("width"), 100);
+                original.height = getOrDefault(selected.get("height"), 100);
+                original.paddingX = getOrDefault(selected.get("paddingX"), "center");
+                original.paddingY = getOrDefault(selected.get("paddingY"), "center");
+                original.xOffset = getOrDefault(selected.get("xOffset"), 0);
+                original.yOffset = getOrDefault(selected.get("yOffset"), 0);
+                original.speedMultiplyer = getOrDefault(selected.get("speedMultiplyer"), 1);
+                original.fdelay = getOrDefault(selected.get("frameDelay"), 100);
+                original.inifinityLoop = getOrDefault(selected.get("inifinityLoop"), false);
+                original.count = getOrDefault(selected.get("count"), 0);
+                original.resizeMethod = getOrDefault(selected.get("resizeMethod"), "NEAREST");
+                original.backgroundLedStripMethod = getOrDefault(selected.get("backgroundLedStripMethod"), "none");
+                original.backgroundImageMethodTiming = getOrDefault(selected.get("backgroundImageMethodTiming"), "everyFrame");
+                original.brightness = getOrDefault(selected.get("brightness"), 100);
+                original.bgBrightness = getOrDefault(selected.get("bgBrightness"), 100);
+
+                width.value = original.width;
+                height.value = original.height;
+                paddingX.value = original.paddingX;
+                paddingY.value = original.paddingY;
+                xOffset.value = original.xOffset;
+                yOffset.value = original.yOffset;
+                fdelay.value = original.fdelay;
+                speedMultiplyer.value = original.speedMultiplyer;
+                count.value = original.count;
+                loop.value = original.inifinityLoop;
+                resizeMethod.value = original.resizeMethod;
+                backgroundLedStripMethod.value = original.backgroundLedStripMethod;
+                backgroundImageMethodTiming.value = original.backgroundImageMethodTiming;
+                brightness.value = original.brightness;
+                backgroundBrightness.value = original.bgBrightness;
+
+
+
+                document.getElementById("save").onclick = async function(){
+
+                    let data = {};
+
+                    data.width = parseInt(width.value);
+                    data.height = parseInt(height.value);
+                    data.paddingX = paddingX.value;
+                    data.paddingY = paddingY.value;
+                    data.xOffset = parseInt(xOffset.value);
+                    data.yOffset = parseInt(yOffset.value);
+                    data.resizeMethod = resizeMethod.value;
+                    data.backgroundLedStripMethod = backgroundLedStripMethod.value;
+                    data.brightness = parseInt(brightness.value);
+                    data.bgBrightness = parseInt(backgroundBrightness.value);
+
+                    const deleteIfNotChanged = (key) => {
+                        if(data[key] == original[key]){
+                            delete data[key];
+                        }
+                    }
+
+                    deleteIfNotChanged("width");
+                    deleteIfNotChanged("height");
+                    deleteIfNotChanged("paddingX");
+                    deleteIfNotChanged("paddingY");
+                    deleteIfNotChanged("xOffset");
+                    deleteIfNotChanged("yOffset");
+                    deleteIfNotChanged("resizeMethod");
+                    deleteIfNotChanged("backgroundLedStripMethod");
+                    deleteIfNotChanged("brightness");
+                    deleteIfNotChanged("bgBrightness");
+
+                    if(type == "gif"){
+                        data.speedMultiplyer = parseFloat(speedMultiplyer.value);
+                        data.fdelay = parseInt(fdelay.value);
+                        data.count = parseInt(count.value);
+                        data.inifinityLoop = loop.value == "true";
+                        data.backgroundImageMethodTiming = backgroundImageMethodTiming.value;
+
+                        deleteIfNotChanged("speedMultiplyer");
+                        deleteIfNotChanged("fdelay");
+                        deleteIfNotChanged("count");
+                        deleteIfNotChanged("inifinityLoop");
+                        deleteIfNotChanged("backgroundImageMethodTiming");
+                    }
+
+                    if(Object.keys(data).length == 0){
+                        closeEditor();
+                        return;
+                    }
+
+                    await Actions.edit(type, selected.getName(), data);
+                    closeEditor();
+                    loadAll();
+                }
+            }
+
+            function show(){
+                let selected = Selector.getSelected();
+                if(selected == undefined){
+                    alert("No item selected", AlertType.ERROR, 3000);
+                    return;
+                }
+                if(selected == null){
+                    alert("No item selected", AlertType.ERROR, 3000);
+                    return;
+                }
+                let type = selected.getType();
+
+                if(type == null){
+                    alert("No item selected", AlertType.ERROR, 3000);
+                    return;
+                }
+                if(selected.getName() == null){
+                    alert("No item selected", AlertType.ERROR, 3000);
+                    return;
+                }
+                Actions.show(type, selected.getName());
+            }
+
+            async function deleteE(){
+                let selected = Selector.getSelected();
+                if(selected == undefined){
+                    alert("No item selected", AlertType.ERROR, 3000);
+                    return;
+                }
+                if(selected == null){
+                    alert("No item selected", AlertType.ERROR, 3000);
+                    return;
+                }
+                let type = selected.getType();
+
+                if(type == null){
+                    alert("No item selected", AlertType.ERROR, 3000);
+                    return;
+                }
+                if(selected.getName() == null){
+                    alert("No item selected", AlertType.ERROR, 3000);
+                    return;
+                }
+                await Actions.delete(type, selected.getName());
+                loadAll();
+            }
+
+            function upload(){
+                let uploadInput = document.createElement("input");
+                uploadInput.type = "file";
+                uploadInput.accept = ".png, .jpg, .jpeg, .gif, .zip";
+                uploadInput.style.display = "none";
+                uploadInput.addEventListener("change", async function(){
+                    let file = uploadInput.files[0];
+                    if(file == undefined){
+                        alert("No file selected", AlertType.ERROR, 3000);
+                        return;
+                    }
+                    if(file == null){
+                        alert("No file selected", AlertType.ERROR, 3000);
+                        return;
+                    }
+                    let name = file.name;
+                    let base64Content = await toBase64(file);
+                    base64Content = base64Content.replace(/^.*?,/gm, '');
+                    await Actions.upload(name, base64Content);
+                    loadAll();
+                });
+
+                document.body.appendChild(uploadInput);
+                uploadInput.click();
+                document.body.removeChild(uploadInput);
+            }
+
+            const toBase64 = file => new Promise((resolve, reject) => {
+                const reader = new FileReader();
+                reader.readAsDataURL(file);
+                reader.onload = () => resolve(reader.result);
+                reader.onerror = reject;
+            });
+
+        </script>
+
+        <script>
+            function formatDate(date, longName=false){
+                var weekdays = ['So', 'Mo', 'Di', 'Mi', 'Do', 'Fr', 'Sa'];
+                var weekdaysLong = ['Sonntag', 'Montag', 'Dienstag', 'Mittwoch', 'Donnerstag', 'Freitag', 'Samstag'];
+                var months = ['Januar', 'Februar', 'März', 'April', 'Mai', 'Juni', 'Juli', 'August', 'September', 'Oktober', 'November', 'Dezember'];
+                var dayOfWeek = date.getDay();
+                var dayOfMonth = date.getDate();
+                var month = date.getMonth();
+                var year = date.getFullYear();
+                if(!longName) return weekdays[dayOfWeek] + ', ' + dayOfMonth + '. ' + months[month] + ' ' + year;
+                return weekdaysLong[dayOfWeek] + ', ' + dayOfMonth + '. ' + months[month] + ' ' + year;
+            }
+
+            async function loadPlugins(plugins=undefined){
+                if(plugins == undefined){
+                    plugins = await Matrix.getPlugins();
+                    if(!plugins.ok)return;
+                    plugins = plugins.plugins;
+                }
+                let contentListBodyPlugins = document.getElementById("contentListBodyPlugins");
+                contentListBodyPlugins.innerHTML = "";
+
+                for(let i = 0; i < plugins.length; i++){
+                    let plugin = plugins[i];
+                    let row = document.createElement("tr");
+                    let name = document.createElement("td");
+                    let uploaded = document.createElement("td");
+
+                    row.addEventListener("click", function(e){
+                        Selector.selectPlugin(plugin, getTr(e.target));
+                        console.log(plugin);
+                    });
+
+                    if(Selector.getSelected().getType() == "plugin" && Selector.getSelected().getName() == plugin.name){
+                        Selector.selectPlugin(plugin, row);
+                        row.setAttribute("selected", "true");
+                    }
+
+                    name.innerHTML = plugin.name;
+                    console.log(plugin.uploaded*1000);
+                    uploaded.innerHTML = formatDate(new Date(plugin.uploaded*1000));
+
+                    row.appendChild(name);
+                    row.appendChild(uploaded);
+
+                    contentListBodyPlugins.appendChild(row);
+                }
+            }
+
+            async function loadImages(images=undefined){
+                if(images == undefined){
+                    images = await Matrix.getImages();
+                    if(!images.ok)return;
+                    images = images.images;
+                }
+                let contentListBodyImages = document.getElementById("contentListBodyImages");
+                contentListBodyImages.innerHTML = "";
+
+                for(let i = 0; i < images.length; i++){
+                    let image = images[i];
+                    let row = document.createElement("tr");
+                    let name = document.createElement("td");
+                    let width = document.createElement("td");
+                    let height = document.createElement("td");
+                    let errorTD = document.createElement("td");
+                    let uploaded = document.createElement("td");
+
+                    row.addEventListener("click", function(e){
+                        Selector.selectImage(image, getTr(e.target));
+                    });
+
+                    name.innerHTML = image.name;
+                    width.innerHTML = getOrDefault(image.settings.width, image.dimensions.width);
+                    height.innerHTML = getOrDefault(image.settings.height, image.dimensions.height);
+                    uploaded.innerHTML = formatDate(new Date(image.uploaded*1000));
+
+                    if(Selector.getSelected().getType() == "image" && Selector.getSelected().getName() == image.name){
+                        Selector.selectImage(image, row);
+                        row.setAttribute("selected", "true");
+                    }
+
+                    if(typeof image.dimensions == "string")
+                        errorTD.innerHTML = image.dimensions;
+                        errorTD.setAttribute("colspan", "2");
+
+                    row.appendChild(name);
+                    if(typeof image.dimensions != "string"){
+                        row.appendChild(width);
+                        row.appendChild(height);
+                    }else{
+                        errorTD.classList.add("error");
+                        row.appendChild(errorTD);
+                    }
+                    row.appendChild(uploaded);
+
+                    contentListBodyImages.appendChild(row);
+                }
+            }
+
+            function getOrDefault(value, def){
+                if(value == undefined || value == null || value == "")return def;
+                return value;
+            }
+
+            async function loadGifs(gifs=undefined){
+                if(gifs == undefined){
+                    gifs = await Matrix.getGifs();
+                    if(!gifs.ok)return;
+                    gifs = gifs.gifs;
+                }
+                let contentListBodyGif = document.getElementById("contentListBodyGif");
+                contentListBodyGif.innerHTML = "";
+
+                for(let i = 0; i < gifs.length; i++){
+                    let gif = gifs[i];
+                    let row = document.createElement("tr");
+                    let name = document.createElement("td");
+                    let frames = document.createElement("td");
+                    let fDelay = document.createElement("td");
+                    let errorTD = document.createElement("td");
+                    let speedMultiplyer = document.createElement("td");
+                    let uploaded = document.createElement("td");
+
+                    row.addEventListener("click", function(e){
+                        Selector.selectGif(gif, getTr(e.target));
+                    });
+
+                    name.innerHTML = gif.name.replace(".gif", "");
+                    frames.innerHTML = gif.frameCount;
+                    fDelay.innerHTML = getOrDefault(gif.settings.frameDelay, gif.frameDelay);
+                    speedMultiplyer.innerHTML = (getOrDefault(gif.settings.speedMultiplyer, 1)).toFixed(2);
+                    uploaded.innerHTML = formatDate(new Date(gif.uploaded*1000));
+
+                    
+                    if(Selector.getSelected().getType() == "gif" && Selector.getSelected().getName() == gif.name){
+                        Selector.selectGif(gif, row);
+                        row.setAttribute("selected", "true");
+                    }
+
+                    if(gif.error != undefined || gif.error != null || gif.error != "")
+                        errorTD.innerHTML = gif.error;
+                        errorTD.setAttribute("colspan", "2");
+
+                    row.appendChild(name);
+                    if(gif.error == undefined || gif.error == null || gif.error == ""){
+                        row.appendChild(frames);
+                        row.appendChild(fDelay);
+                    }else{
+                        errorTD.classList.add("error");
+                        row.appendChild(errorTD);
+                    }
+                    row.appendChild(speedMultiplyer);
+                    row.appendChild(uploaded);
+
+                    contentListBodyGif.appendChild(row);
+                }
+            }
+
+            function getTr(element){
+                if(element.tagName == "TR")return element;
+                return getTr(element.parentElement);
+            }
+
+            async function loadAll(){
+                let data = await Matrix.getAllData();
+                if(!data.ok)return;
+                loadPlugins(data.plugins);
+                loadImages(data.images);
+                loadGifs(data.gifs);
+            }
+
+            loadAll();
+
+        </script>
+        <script>
+            /* One-time setup (run once before other code)
+            *   adds onreadystatechange to $.ajax options
+            *   from https://gist.github.com/chrishow/3023092)
+            *   success etc will still fire if provided
+            */
+            $.ajaxPrefilter(function( options, originalOptions, jqXHR ) {
+                if ( options.onreadystatechange ) {
+                    var xhrFactory = options.xhr;
+                    options.xhr = function() {
+                        var xhr = xhrFactory.apply( this, arguments );
+                        function handler() {
+                            options.onreadystatechange( xhr, jqXHR );
+                        }
+                        if ( xhr.addEventListener ) {
+                            xhr.addEventListener( "readystatechange", handler, false );
+                        } else {
+                            setTimeout( function() {
+                                var internal = xhr.onreadystatechange;
+                                if ( internal ) {
+                                    xhr.onreadystatechange = function() {
+                                        handler();
+                                        internal.apply( this, arguments ); 
+                                    };
+                                }
+                            }, 0 );
+                        }
+                        return xhr;
+                    };
+                }
+            });
+        </script>
+    </body>
+</html>

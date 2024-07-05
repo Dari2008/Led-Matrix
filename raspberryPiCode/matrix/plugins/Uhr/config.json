@@ -1,0 +1,15 @@
+{
+    "name": "Uhr",
+    "settingsKeys": [
+        "brightness",
+        "bgBrightness",
+        "timeZone",
+        "timeFormat",
+        "color",
+        "backgroundColor",
+        "backgroundDigit",
+        "fontSize"
+    ],
+    "description": "Uhrzeit",
+    "version": "1.0"
+}

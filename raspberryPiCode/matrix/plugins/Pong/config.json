@@ -1,0 +1,9 @@
+{
+    "name": "Pong",
+    "settingsKeys": [
+        "boardSize",
+        "ballSize"
+    ],
+    "description": "The classic game Pong",
+    "version": "1.0"
+}

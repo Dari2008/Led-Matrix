@@ -1,0 +1,686 @@
+[
+    {
+        "matchID": 69341,
+        "matchDateTime": "2024-06-14T21: 00: 00",
+        "timeZoneID": "W. Europe Standard Time",
+        "leagueId": 4708,
+        "leagueName": "UEFA EURO 2024",
+        "leagueSeason": 2024,
+        "leagueShortcut": "em",
+        "matchDateTimeUTC": "2024-06-14T19: 00: 00Z",
+        "group": {
+            "groupName": "1. Runde Gruppenphase",
+            "groupOrderID": 1,
+            "groupID": 44154
+        },
+        "team1": {
+            "teamId": 3196,
+            "teamName": "Deutschland",
+            "shortName": "DEU",
+            "teamIconUrl": "https: //upload.wikimedia.org/wikipedia/commons/thumb/b/ba/Flag_of_Germany.svg/150px-Flag_of_Germany.svg.png",
+            "teamGroupName": ""
+        },
+        "team2": {
+            "teamId": 5271,
+            "teamName": "Schottland",
+            "shortName": "SCT",
+            "teamIconUrl": "https://upload.wikimedia.org/wikipedia/commons/thumb/1/10/Flag_of_Scotland.svg/1024px-Flag_of_Scotland.svg.png",
+            "teamGroupName": ""
+        },
+        "lastUpdateDateTime": "2024-06-15T15: 20: 58.233",
+        "matchIsFinished": true,
+        "matchResults": [
+            {
+                "resultID": 110926,
+                "resultName": "Halbzeitergebnis",
+                "pointsTeam1": 3,
+                "pointsTeam2": 0,
+                "resultOrderID": 1,
+                "resultTypeID": 1,
+                "resultDescription": "Ergebnis zur Halbzeitpause"
+            },
+            {
+                "resultID": 110927,
+                "resultName": "Endergebnis",
+                "pointsTeam1": 5,
+                "pointsTeam2": 1,
+                "resultOrderID": 2,
+                "resultTypeID": 2,
+                "resultDescription": "Ergebnis nach Ende der offiziellen Spielzeit"
+            }
+        ],
+        "goals": [
+            {
+                "goalID": 115408,
+                "scoreTeam1": 3,
+                "scoreTeam2": 0,
+                "matchMinute": 45,
+                "goalGetterID": 16261,
+                "goalGetterName": "Kai Havertz\r\n",
+                "isPenalty": true,
+                "isOwnGoal": false,
+                "isOvertime": true,
+                "comment": ""
+            },
+            {
+                "goalID": 115410,
+                "scoreTeam1": 4,
+                "scoreTeam2": 1,
+                "matchMinute": 87,
+                "goalGetterID": 17207,
+                "goalGetterName": "Antonio Rüdiger",
+                "isPenalty": false,
+                "isOwnGoal": true,
+                "isOvertime": false,
+                "comment": ""
+            },
+            {
+                "goalID": 115411,
+                "scoreTeam1": 5,
+                "scoreTeam2": 1,
+                "matchMinute": 90,
+                "goalGetterID": 17933,
+                "goalGetterName": "Emre Can",
+                "isPenalty": false,
+                "isOwnGoal": false,
+                "isOvertime": true,
+                "comment": ""
+            },
+            {
+                "goalID": 115420,
+                "scoreTeam1": 1,
+                "scoreTeam2": 0,
+                "matchMinute": 10,
+                "goalGetterID": 18298,
+                "goalGetterName": "Florian Wirtz",
+                "isPenalty": false,
+                "isOwnGoal": false,
+                "isOvertime": false,
+                "comment": ""
+            },
+            {
+                "goalID": 115409,
+                "scoreTeam1": 4,
+                "scoreTeam2": 0,
+                "matchMinute": 68,
+                "goalGetterID": 19686,
+                "goalGetterName": "Niclas Füllkrug",
+                "isPenalty": false,
+                "isOwnGoal": false,
+                "isOvertime": false,
+                "comment": ""
+            },
+            {
+                "goalID": 115419,
+                "scoreTeam1": 2,
+                "scoreTeam2": 0,
+                "matchMinute": 19,
+                "goalGetterID": 20094,
+                "goalGetterName": "Jamal Musiala",
+                "isPenalty": false,
+                "isOwnGoal": false,
+                "isOvertime": false,
+                "comment": ""
+            }
+        ],
+        "location": {
+            "locationID": 34,
+            "locationCity": "München",
+            "locationStadium": "Allianz Arena"
+        },
+        "numberOfViewers": 66000
+    },
+    {
+        "matchID": 69342,
+        "matchDateTime": "2024-06-15T15: 00: 00",
+        "timeZoneID": "W. Europe Standard Time",
+        "leagueId": 4708,
+        "leagueName": "UEFA EURO 2024",
+        "leagueSeason": 2024,
+        "leagueShortcut": "em",
+        "matchDateTimeUTC": "2024-06-15T13: 00: 00Z",
+        "group": {
+            "groupName": "1. Runde Gruppenphase",
+            "groupOrderID": 1,
+            "groupID": 44154
+        },
+        "team1": {
+            "teamId": 6167,
+            "teamName": "Ungarn",
+            "shortName": "HUN",
+            "teamIconUrl": "https://upload.wikimedia.org/wikipedia/commons/thumb/c/c1/Flag_of_Hungary.svg/320px-Flag_of_Hungary.svg.png",
+            "teamGroupName": ""
+        },
+        "team2": {
+            "teamId": 38,
+            "teamName": "Schweiz",
+            "shortName": "CHE",
+            "teamIconUrl": "https://upload.wikimedia.org/wikipedia/commons/thumb/9/92/Civil_Ensign_of_Switzerland_%28Pantone%29.svg/23px-Civil_Ensign_of_Switzerland_%28Pantone%29.svg.png",
+            "teamGroupName": ""
+        },
+        "lastUpdateDateTime": "2024-06-15T17: 38: 04.763",
+        "matchIsFinished": true,
+        "matchResults": [
+            {
+                "resultID": 110930,
+                "resultName": "Halbzeitergebnis",
+                "pointsTeam1": 0,
+                "pointsTeam2": 2,
+                "resultOrderID": 1,
+                "resultTypeID": 1,
+                "resultDescription": "Ergebnis zur Halbzeitpause"
+            },
+            {
+                "resultID": 110931,
+                "resultName": "Endergebnis",
+                "pointsTeam1": 1,
+                "pointsTeam2": 3,
+                "resultOrderID": 2,
+                "resultTypeID": 2,
+                "resultDescription": "Ergebnis nach Ende der offiziellen Spielzeit"
+            }
+        ],
+        "goals": [
+            {
+                "goalID": 115429,
+                "scoreTeam1": 1,
+                "scoreTeam2": 3,
+                "matchMinute": 93,
+                "goalGetterID": 16135,
+                "goalGetterName": "Breel Embolo",
+                "isPenalty": false,
+                "isOwnGoal": false,
+                "isOvertime": true,
+                "comment": ""
+            },
+            {
+                "goalID": 115421,
+                "scoreTeam1": 0,
+                "scoreTeam2": 2,
+                "matchMinute": 45,
+                "goalGetterID": 17837,
+                "goalGetterName": "Michel Aebischer",
+                "isPenalty": false,
+                "isOwnGoal": false,
+                "isOvertime": false,
+                "comment": ""
+            },
+            {
+                "goalID": 115415,
+                "scoreTeam1": 0,
+                "scoreTeam2": 1,
+                "matchMinute": 12,
+                "goalGetterID": 20065,
+                "goalGetterName": "Kwadwo Duah",
+                "isPenalty": false,
+                "isOwnGoal": false,
+                "isOvertime": false,
+                "comment": ""
+            },
+            {
+                "goalID": 115428,
+                "scoreTeam1": 1,
+                "scoreTeam2": 2,
+                "matchMinute": 66,
+                "goalGetterID": 22665,
+                "goalGetterName": "Barnabás Varga",
+                "isPenalty": false,
+                "isOwnGoal": false,
+                "isOvertime": false,
+                "comment": ""
+            }
+        ],
+        "location": {
+            "locationID": 509,
+            "locationCity": "Köln",
+            "locationStadium": "RheinEnergieStadion "
+        },
+        "numberOfViewers": ""
+    },
+    {
+        "matchID": 69343,
+        "matchDateTime": "2024-06-15T18: 00: 00",
+        "timeZoneID": "W. Europe Standard Time",
+        "leagueId": 4708,
+        "leagueName": "UEFA EURO 2024",
+        "leagueSeason": 2024,
+        "leagueShortcut": "em",
+        "matchDateTimeUTC": "2024-06-15T16: 00: 00Z",
+        "group": {
+            "groupName": "1. Runde Gruppenphase",
+            "groupOrderID": 1,
+            "groupID": 44154
+        },
+        "team1": {
+            "teamId": 170,
+            "teamName": "Spanien",
+            "shortName": "ESP",
+            "teamIconUrl": "https://upload.wikimedia.org/wikipedia/commons/thumb/9/9a/Flag_of_Spain.svg/20px-Flag_of_Spain.svg.png",
+            "teamGroupName": ""
+        },
+        "team2": {
+            "teamId": 146,
+            "teamName": "Kroatien",
+            "shortName": "HRV",
+            "teamIconUrl": "https://upload.wikimedia.org/wikipedia/commons/thumb/1/1b/Flag_of_Croatia.svg/20px-Flag_of_Croatia.svg.png",
+            "teamGroupName": ""
+        },
+        "lastUpdateDateTime": "2024-06-15T18: 49: 20.67",
+        "matchIsFinished": false,
+        "matchResults": [
+            {
+                "resultID": 110935,
+                "resultName": "Halbzeitergebnis",
+                "pointsTeam1": 3,
+                "pointsTeam2": 0,
+                "resultOrderID": 1,
+                "resultTypeID": 1,
+                "resultDescription": "Ergebnis zur Halbzeitpause"
+            },
+            {
+                "resultID": 110936,
+                "resultName": "Endergebnis",
+                "pointsTeam1": 3,
+                "pointsTeam2": 0,
+                "resultOrderID": 2,
+                "resultTypeID": 2,
+                "resultDescription": "Ergebnis nach Ende der offiziellen Spielzeit"
+            }
+        ],
+        "goals": [
+            {
+                "goalID": 115439,
+                "scoreTeam1": 3,
+                "scoreTeam2": 0,
+                "matchMinute": 47,
+                "goalGetterID": 8724,
+                "goalGetterName": "Carvajal",
+                "isPenalty": false,
+                "isOwnGoal": false,
+                "isOvertime": true,
+                "comment": ""
+            },
+            {
+                "goalID": 115437,
+                "scoreTeam1": 2,
+                "scoreTeam2": 0,
+                "matchMinute": 32,
+                "goalGetterID": 12017,
+                "goalGetterName": "Ruiz",
+                "isPenalty": false,
+                "isOwnGoal": false,
+                "isOvertime": false,
+                "comment": ""
+            },
+            {
+                "goalID": 115434,
+                "scoreTeam1": 1,
+                "scoreTeam2": 0,
+                "matchMinute": 29,
+                "goalGetterID": 17070,
+                "goalGetterName": "Álvaro Morata",
+                "isPenalty": false,
+                "isOwnGoal": false,
+                "isOvertime": false,
+                "comment": ""
+            }
+        ],
+        "location": {
+            "locationID": 22,
+            "locationCity": "Berlin",
+            "locationStadium": "Olympiastadion"
+        },
+        "numberOfViewers": ""
+    },
+    {
+        "matchID": 69344,
+        "matchDateTime": "2024-06-15T21: 00: 00",
+        "timeZoneID": "W. Europe Standard Time",
+        "leagueId": 4708,
+        "leagueName": "UEFA EURO 2024",
+        "leagueSeason": 2024,
+        "leagueShortcut": "em",
+        "matchDateTimeUTC": "2024-06-15T19: 00: 00Z",
+        "group": {
+            "groupName": "1. Runde Gruppenphase",
+            "groupOrderID": 1,
+            "groupID": 44154
+        },
+        "team1": {
+            "teamId": 3203,
+            "teamName": "Italien",
+            "shortName": "ITA",
+            "teamIconUrl": "https://upload.wikimedia.org/wikipedia/en/0/03/Flag_of_Italy.svg",
+            "teamGroupName": ""
+        },
+        "team2": {
+            "teamId": 6169,
+            "teamName": "Albanien",
+            "shortName": "ALB",
+            "teamIconUrl": "https://upload.wikimedia.org/wikipedia/commons/thumb/3/36/Flag_of_Albania.svg/320px-Flag_of_Albania.svg.png",
+            "teamGroupName": ""
+        },
+        "lastUpdateDateTime": "2024-02-02T23: 58: 41.97",
+        "matchIsFinished": false,
+        "matchResults": [],
+        "goals": [],
+        "location": {
+            "locationID": 35,
+            "locationCity": "Dortmund",
+            "locationStadium": "Signal Iduna Park"
+        },
+        "numberOfViewers": ""
+    },
+    {
+        "matchID": 69345,
+        "matchDateTime": "2024-06-16T15: 00: 00",
+        "timeZoneID": "W. Europe Standard Time",
+        "leagueId": 4708,
+        "leagueName": "UEFA EURO 2024",
+        "leagueSeason": 2024,
+        "leagueShortcut": "em",
+        "matchDateTimeUTC": "2024-06-16T13: 00: 00Z",
+        "group": {
+            "groupName": "1. Runde Gruppenphase",
+            "groupOrderID": 1,
+            "groupID": 44154
+        },
+        "team1": {
+            "teamId": 1410,
+            "teamName": "Polen",
+            "shortName": "POL",
+            "teamIconUrl": "https://upload.wikimedia.org/wikipedia/commons/thumb/1/12/Flag_of_Poland.svg/23px-Flag_of_Poland.svg.png",
+            "teamGroupName": ""
+        },
+        "team2": {
+            "teamId": 4353,
+            "teamName": "Niederlande",
+            "shortName": "NLD",
+            "teamIconUrl": "https://upload.wikimedia.org/wikipedia/commons/thumb/2/20/Flag_of_the_Netherlands.svg/20px-Flag_of_the_Netherlands.svg.png",
+            "teamGroupName": ""
+        },
+        "lastUpdateDateTime": "2024-03-27T20: 44: 20.987",
+        "matchIsFinished": false,
+        "matchResults": [],
+        "goals": [],
+        "location": {
+            "locationID": 34,
+            "locationCity": "München",
+            "locationStadium": "Allianz Arena"
+        },
+        "numberOfViewers": ""
+    },
+    {
+        "matchID": 69346,
+        "matchDateTime": "2024-06-16T18: 00: 00",
+        "timeZoneID": "W. Europe Standard Time",
+        "leagueId": 4708,
+        "leagueName": "UEFA EURO 2024",
+        "leagueSeason": 2024,
+        "leagueShortcut": "em",
+        "matchDateTimeUTC": "2024-06-16T16: 00: 00Z",
+        "group": {
+            "groupName": "1. Runde Gruppenphase",
+            "groupOrderID": 1,
+            "groupID": 44154
+        },
+        "team1": {
+            "teamId": 6170,
+            "teamName": "Slowenien",
+            "shortName": "SVN",
+            "teamIconUrl": "https://upload.wikimedia.org/wikipedia/commons/thumb/f/f0/Flag_of_Slovenia.svg/320px-Flag_of_Slovenia.svg.png",
+            "teamGroupName": ""
+        },
+        "team2": {
+            "teamId": 758,
+            "teamName": "Dänemark",
+            "shortName": "DNK",
+            "teamIconUrl": "https://upload.wikimedia.org/wikipedia/commons/thumb/9/9c/Flag_of_Denmark.svg/20px-Flag_of_Denmark.svg.png",
+            "teamGroupName": ""
+        },
+        "lastUpdateDateTime": "2024-02-03T00: 00: 26.577",
+        "matchIsFinished": false,
+        "matchResults": [],
+        "goals": [],
+        "location": {
+            "locationID": 493,
+            "locationCity": "Stuttgart",
+            "locationStadium": "Mercedes-Benz Arena"
+        },
+        "numberOfViewers": ""
+    },
+    {
+        "matchID": 69347,
+        "matchDateTime": "2024-06-16T21: 00: 00",
+        "timeZoneID": "W. Europe Standard Time",
+        "leagueId": 4708,
+        "leagueName": "UEFA EURO 2024",
+        "leagueSeason": 2024,
+        "leagueShortcut": "em",
+        "matchDateTimeUTC": "2024-06-16T19: 00: 00Z",
+        "group": {
+            "groupName": "1. Runde Gruppenphase A",
+            "groupOrderID": 1,
+            "groupID": 44154
+        },
+        "team1": {
+            "teamId": 5592,
+            "teamName": "Serbien",
+            "shortName": "SRB",
+            "teamIconUrl": "https://cdn.pixabay.com/photo/2013/07/13/14/17/serbia-162415_960_720.png",
+            "teamGroupName": ""
+        },
+        "team2": {
+            "teamId": 3197,
+            "teamName": "England",
+            "shortName": "ENG",
+            "teamIconUrl": "https://upload.wikimedia.org/wikipedia/en/thumb/b/be/Flag_of_England.svg/1280px-Flag_of_England.svg.png",
+            "teamGroupName": ""
+        },
+        "lastUpdateDateTime": "2024-02-03T00: 01: 44.323",
+        "matchIsFinished": false,
+        "matchResults": [],
+        "goals": [],
+        "location": {
+            "locationID": 33,
+            "locationCity": "Gelsenkirchen",
+            "locationStadium": "Veltins Arena"
+        },
+        "numberOfViewers": ""
+    },
+    {
+        "matchID": 69348,
+        "matchDateTime": "2024-06-17T15: 00: 00",
+        "timeZoneID": "W. Europe Standard Time",
+        "leagueId": 4708,
+        "leagueName": "UEFA EURO 2024",
+        "leagueSeason": 2024,
+        "leagueShortcut": "em",
+        "matchDateTimeUTC": "2024-06-17T13: 00: 00Z",
+        "group": {
+            "groupName": "1. Runde Gruppenphase",
+            "groupOrderID": 1,
+            "groupID": 44154
+        },
+        "team1": {
+            "teamId": 6171,
+            "teamName": "Rumänien",
+            "shortName": "ROU",
+            "teamIconUrl": "https://upload.wikimedia.org/wikipedia/commons/thumb/7/73/Flag_of_Romania.svg/320px-Flag_of_Romania.svg.png",
+            "teamGroupName": ""
+        },
+        "team2": {
+            "teamId": 3204,
+            "teamName": "Ukraine",
+            "shortName": "UKR",
+            "teamIconUrl": "https://upload.wikimedia.org/wikipedia/commons/thumb/4/49/Flag_of_Ukraine.svg/2000px-Flag_of_Ukraine.svg.png",
+            "teamGroupName": ""
+        },
+        "lastUpdateDateTime": "2024-03-27T20: 44: 53.133",
+        "matchIsFinished": false,
+        "matchResults": [],
+        "goals": [],
+        "location": {
+            "locationID": 34,
+            "locationCity": "München",
+            "locationStadium": "Allianz Arena"
+        },
+        "numberOfViewers": ""
+    },
+    {
+        "matchID": 69349,
+        "matchDateTime": "2024-06-17T18: 00: 00",
+        "timeZoneID": "W. Europe Standard Time",
+        "leagueId": 4708,
+        "leagueName": "UEFA EURO 2024",
+        "leagueSeason": 2024,
+        "leagueShortcut": "em",
+        "matchDateTimeUTC": "2024-06-17T16: 00: 00Z",
+        "group": {
+            "groupName": "1. Runde Gruppenphase",
+            "groupOrderID": 1,
+            "groupID": 44154
+        },
+        "team1": {
+            "teamId": 5587,
+            "teamName": "Belgien",
+            "shortName": "BEL",
+            "teamIconUrl": "https://cdn.pixabay.com/photo/2013/07/13/14/14/belgium-162240_960_720.png",
+            "teamGroupName": ""
+        },
+        "team2": {
+            "teamId": 3201,
+            "teamName": "Slowakei",
+            "shortName": "SVK",
+            "teamIconUrl": "https://upload.wikimedia.org/wikipedia/commons/thumb/e/e6/Flag_of_Slovakia.svg/1280px-Flag_of_Slovakia.svg.png",
+            "teamGroupName": ""
+        },
+        "lastUpdateDateTime": "2024-02-03T00: 03: 27.953",
+        "matchIsFinished": false,
+        "matchResults": [],
+        "goals": [],
+        "location": {
+            "locationID": 1346,
+            "locationCity": "Frankfurt",
+            "locationStadium": "Deutsche Bank Park"
+        },
+        "numberOfViewers": ""
+    },
+    {
+        "matchID": 69350,
+        "matchDateTime": "2024-06-17T21: 00: 00",
+        "timeZoneID": "W. Europe Standard Time",
+        "leagueId": 4708,
+        "leagueName": "UEFA EURO 2024",
+        "leagueSeason": 2024,
+        "leagueShortcut": "em",
+        "matchDateTimeUTC": "2024-06-17T19: 00: 00Z",
+        "group": {
+            "groupName": "1. Runde Gruppenphase",
+            "groupOrderID": 1,
+            "groupID": 44154
+        },
+        "team1": {
+            "teamId": 4354,
+            "teamName": "Österreich",
+            "shortName": "AUT",
+            "teamIconUrl": "https://upload.wikimedia.org/wikipedia/commons/thumb/4/41/Flag_of_Austria.svg/20px-Flag_of_Austria.svg.png",
+            "teamGroupName": ""
+        },
+        "team2": {
+            "teamId": 144,
+            "teamName": "Frankreich",
+            "shortName": "FRA",
+            "teamIconUrl": "http://upload.wikimedia.org/wikipedia/commons/thumb/c/c3/Flag_of_France.svg/20px-Flag_of_France.svg.png",
+            "teamGroupName": ""
+        },
+        "lastUpdateDateTime": "2024-02-03T00: 04: 34.437",
+        "matchIsFinished": false,
+        "matchResults": [],
+        "goals": [],
+        "location": {
+            "locationID": 1295,
+            "locationCity": "Düsseldorf",
+            "locationStadium": "Merkur Spielarena"
+        },
+        "numberOfViewers": ""
+    },
+    {
+        "matchID": 69351,
+        "matchDateTime": "2024-06-18T18: 00: 00",
+        "timeZoneID": "W. Europe Standard Time",
+        "leagueId": 4708,
+        "leagueName": "UEFA EURO 2024",
+        "leagueSeason": 2024,
+        "leagueShortcut": "em",
+        "matchDateTimeUTC": "2024-06-18T16: 00: 00Z",
+        "group": {
+            "groupName": "1. Runde Gruppenphase",
+            "groupOrderID": 1,
+            "groupID": 44154
+        },
+        "team1": {
+            "teamId": 3205,
+            "teamName": "Türkei",
+            "shortName": "TUR",
+            "teamIconUrl": "https://upload.wikimedia.org/wikipedia/commons/thumb/b/b4/Flag_of_Turkey.svg/2000px-Flag_of_Turkey.svg.png",
+            "teamGroupName": ""
+        },
+        "team2": {
+            "teamId": 6239,
+            "teamName": "Georgien",
+            "shortName": "GEO",
+            "teamIconUrl": "https://upload.wikimedia.org/wikipedia/commons/thumb/0/0f/Flag_of_Georgia.svg/20px-Flag_of_Georgia.svg.png",
+            "teamGroupName": ""
+        },
+        "lastUpdateDateTime": "2024-06-05T14: 31: 10.23",
+        "matchIsFinished": false,
+        "matchResults": [],
+        "goals": [],
+        "location": {
+            "locationID": 35,
+            "locationCity": "Dortmund",
+            "locationStadium": "Signal Iduna Park"
+        },
+        "numberOfViewers": ""
+    },
+    {
+        "matchID": 69352,
+        "matchDateTime": "2024-06-18T21: 00: 00",
+        "timeZoneID": "W. Europe Standard Time",
+        "leagueId": 4708,
+        "leagueName": "UEFA EURO 2024",
+        "leagueSeason": 2024,
+        "leagueShortcut": "em",
+        "matchDateTimeUTC": "2024-06-18T19: 00: 00Z",
+        "group": {
+            "groupName": "1. Runde Gruppenphase",
+            "groupOrderID": 1,
+            "groupID": 44154
+        },
+        "team1": {
+            "teamId": 3198,
+            "teamName": "Portugal",
+            "shortName": "PRT",
+            "teamIconUrl": "https://upload.wikimedia.org/wikipedia/commons/thumb/5/5c/Flag_of_Portugal.svg/2000px-Flag_of_Portugal.svg.png",
+            "teamGroupName": ""
+        },
+        "team2": {
+            "teamId": 141,
+            "teamName": "Tschechien",
+            "shortName": "CZE",
+            "teamIconUrl": "https://upload.wikimedia.org/wikipedia/commons/thumb/c/cb/Flag_of_the_Czech_Republic.svg/200px-Flag_of_the_Czech_Republic.svg.png",
+            "teamGroupName": ""
+        },
+        "lastUpdateDateTime": "2024-02-03T00: 06: 02.91",
+        "matchIsFinished": false,
+        "matchResults": [],
+        "goals": [],
+        "location": {
+            "locationID": 1216,
+            "locationCity": "Leipzig",
+            "locationStadium": ""
+        },
+        "numberOfViewers": ""
+    }
+]

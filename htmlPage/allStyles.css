@@ -1,0 +1,879 @@
+html, body, dialog {
+  outline: none !important;
+  border: none !important;
+  box-shadow: none !important;
+  text-shadow: none !important;
+  overflow: hidden;
+  box-sizing: border-box;
+  margin: 0px;
+}
+
+*::-moz-selection {
+  background-color: #545454 !important;
+  color: #cccccc !important;
+}
+
+*::selection {
+  background-color: #545454 !important;
+  color: #cccccc !important;
+}
+
+body {
+  position: absolute;
+  width: 100%;
+  height: 100%;
+  overflow: hidden;
+}
+
+button {
+  outline: none !important;
+  border: none !important;
+  box-shadow: none !important;
+  text-shadow: none !important;
+}
+
+.centerAll {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.center {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.close {
+  position: fixed;
+  top: 10px !important;
+  right: 10px !important;
+  color: #fff;
+  cursor: pointer;
+  transition: transform 0.3s, background-color 0.3s, color 0.3s, border-color 0.3s, box-shadow 0.3s;
+  transform-origin: center center;
+  transform: scale(1) rotate(0deg);
+  background-color: transparent;
+  font-size: 25px !important;
+  z-index: 1000000;
+}
+
+.close:hover {
+  background-color: transparent !important;
+  font-weight: bolder !important;
+  transition: transform 0.3s, background-color 0.3s, color 0.3s, border-color 0.3s, box-shadow 0.3s !important;
+  transform: scale(1.2) rotate(90deg);
+}
+
+.close:not(:hover) {
+  transform: scale(1) rotate(0deg);
+}
+
+.close:active {
+  transform: scale(1.3) rotate(0deg);
+}
+
+*::after, *::before, *::backdrop {
+  background-color: inherit;
+}
+
+*, *::after, *::before, *::backdrop {
+  transition: background-color 0.3s, color 0.3s, border-color 0.3s, box-shadow 0.3s;
+  box-sizing: border-box;
+}
+
+iframe {
+  border: none !important;
+  outline: none !important;
+}
+
+.dark html, .dark body, .dark dialog {
+  background-color: #212121;
+}
+.dark dialog::backdrop {
+  background-color: #000;
+  opacity: 0.45;
+}
+.dark .close:hover {
+  color: #b4b4b4 !important;
+}
+
+.light html, .light body, .light dialog {
+  background-color: #f9f9f9;
+}
+.light dialog::backdrop {
+  background-color: #fff;
+  opacity: 0.45;
+}
+.light .close:hover {
+  color: #2f2f2f !important;
+}
+
+#navBar {
+  margin-left: 10px;
+  width: calc(100% - 20px);
+  box-sizing: content-box;
+  background-color: #333;
+  color: white;
+  text-align: center;
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+}
+
+.navBarItem {
+  width: 33%;
+  height: 100%;
+  padding: 10px;
+  margin-left: 10px;
+  margin-right: 10px;
+  -webkit-user-select: none;
+     -moz-user-select: none;
+          user-select: none;
+  font-size: 20px;
+  letter-spacing: 25px;
+  text-transform: uppercase;
+}
+
+.navBarItem.selected {
+  background-color: #212121 !important;
+  margin: 0;
+  width: calc(33% + 20px);
+  transition: width 0.3s, margin 0.3s, background-color 0.3s;
+}
+
+.navBarItem:hover {
+  background-color: #424242;
+  cursor: pointer;
+}
+
+.navBarItem:active {
+  background-color: #2f2f2f;
+}
+
+.contentList {
+  height: 85%;
+  margin-top: 20px;
+  margin-left: 10px;
+  width: calc(100% - 20px);
+  background-color: #171717;
+}
+
+.contentList tr[selected] {
+  background-color: #424242 !important;
+}
+
+.contentList table {
+  width: 100%;
+  height: auto;
+  border-collapse: collapse;
+}
+
+.contentList table thead {
+  color: white;
+  height: 50px;
+  max-height: 50px;
+  background-color: #1c1c1c;
+}
+
+.contentList table thead tr {
+  border-bottom: 2px solid #333333;
+  text-transform: uppercase;
+  font-size: 20px;
+  letter-spacing: 5px;
+}
+
+.contentList table thead th {
+  padding: 10px;
+  text-align: center;
+}
+
+.contentList table thead th:first-child {
+  width: 60% !important;
+}
+
+.contentList table thead th:last-child {
+  width: 20% !important;
+}
+
+.error {
+  color: #553b3b;
+}
+
+.contentList table thead th {
+  width: 10%;
+}
+
+.contentList table tbody {
+  color: white;
+  height: auto;
+  max-height: 50px;
+}
+
+#contentListBodyImages, #contentListBodyPlugins, #contentListBodyGif {
+  text-align: center;
+  text-transform: uppercase;
+  letter-spacing: 5px;
+  font-size: 18px;
+}
+
+#contentListBodyImages tr, #contentListBodyPlugins tr, #contentListBodyGif tr {
+  border-bottom: 1px solid #333333;
+  height: 70px;
+  -webkit-user-select: none;
+     -moz-user-select: none;
+          user-select: none;
+  cursor: pointer;
+}
+
+#contentListBodyImages tr:hover, #contentListBodyPlugins tr:hover, #contentListBodyGif tr:hover {
+  background-color: #212121;
+}
+
+#contentListBodyImages tr:active, #contentListBodyPlugins tr:active, #contentListBodyGif tr:active,
+#contentListBodyImages tr[selected], #contentListBodyPlugins tr[selected], #contentListBodyGif tr[selected] {
+  background-color: #2f2f2f;
+}
+
+[selected=image] #contentListImages {
+  display: block;
+  overflow-y: scroll;
+}
+[selected=image] #contentListImages thead {
+  position: sticky;
+  top: 0px;
+}
+[selected=image] #contentListPlugins, [selected=image] #contentListGifs {
+  display: none;
+}
+
+[selected=plugin] #contentListPlugins {
+  display: block;
+  overflow-y: scroll;
+}
+[selected=plugin] #contentListPlugins thead {
+  position: sticky;
+  top: 0px;
+}
+[selected=plugin] #contentListImages, [selected=plugin] #contentListGifs {
+  display: none;
+}
+
+[selected=animation] #contentListGifs {
+  display: block;
+  overflow-y: scroll;
+}
+[selected=animation] #contentListGifs thead {
+  position: sticky;
+  top: 0px;
+}
+[selected=animation] #contentListImages, [selected=animation] #contentListPlugins {
+  display: none;
+}
+
+.footerOptions {
+  margin-left: 10px;
+  margin-top: 20px;
+  width: calc(100% - 20px);
+  background-color: #171717;
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+}
+
+.footerOptions div {
+  width: 25%;
+  height: 100%;
+  padding: 10px;
+  margin-left: 10px;
+  margin-right: 10px;
+  -webkit-user-select: none;
+     -moz-user-select: none;
+          user-select: none;
+  font-size: 20px;
+  letter-spacing: 10px;
+  text-transform: uppercase;
+  color: white;
+  text-align: center;
+  cursor: pointer;
+}
+
+.footerOptions div:hover {
+  background-color: #424242;
+}
+
+.footerOptions div:active {
+  background-color: #2f2f2f;
+}
+
+.footerOptions div[delete] {
+  background-color: #231616 !important;
+}
+
+.footerOptions div[delete]:hover {
+  background-color: #2e1515 !important;
+}
+
+.footerOptions div[delete]:active {
+  background-color: #3a1414 !important;
+}
+
+#editingDialog {
+  position: fixed;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  width: 70%;
+  height: 50%;
+  background-color: #171717;
+  color: white;
+  text-align: center;
+  border-radius: 10px;
+  display: flex;
+  justify-content: center;
+  padding: 10px;
+  display: none;
+}
+
+#editingDialog[open] {
+  display: block !important;
+}
+
+#editingContext {
+  width: 100%;
+  height: 100%;
+  margin: 0;
+  padding: 0;
+  display: grid;
+  grid-template-columns: 30% 70%;
+  grid-column-gap: 0px;
+  grid-row-gap: 0px;
+}
+
+#editingContext[mode=gif] {
+  grid-template-rows: repeat(17, 1fr);
+}
+
+#editingContext[mode=image] {
+  grid-template-rows: repeat(14, 1fr);
+}
+
+#editingContext #name {
+  grid-area: 1/1/2/3;
+  font-size: 30px;
+  text-transform: uppercase;
+  letter-spacing: 10px;
+  color: white;
+  text-align: center;
+  -webkit-user-select: none;
+     -moz-user-select: none;
+          user-select: none;
+  cursor: default;
+  position: sticky;
+  top: 0px;
+  background-color: #171717;
+  z-index: 100;
+}
+
+#editingContext p {
+  border-bottom: 1px solid #333333;
+}
+
+#editingContext input,
+#editingContext select {
+  width: 80%;
+  height: 50%;
+  background-color: #212121;
+  color: white;
+  border: none;
+  border-radius: 10px;
+  padding: 10px;
+  font-size: 20px;
+  text-align: center;
+  -webkit-appearance: textfield;
+     -moz-appearance: textfield;
+          appearance: textfield;
+  outline: none;
+  border: none;
+  box-shadow: none;
+  box-sizing: border-box;
+  height: calc(100% - 10px);
+  width: calc(100% - 10px);
+  margin: 5px;
+  letter-spacing: 5px;
+}
+
+#editingContext select,
+#pluginEditingContext select {
+  width: 80%;
+  height: 50%;
+  background-color: #212121;
+  color: white;
+  border: none;
+  border-radius: 10px;
+  padding: 10px;
+  font-size: 20px;
+  text-align: center;
+  -webkit-appearance: textfield;
+     -moz-appearance: textfield;
+          appearance: textfield;
+  outline: none;
+  border: none;
+  box-shadow: none;
+  box-sizing: border-box;
+  height: calc(100% - 10px);
+  width: calc(100% - 10px);
+  margin: 5px;
+  letter-spacing: 5px;
+}
+
+#editingContext input::-moz-placeholder, #editingContext select::-moz-placeholder {
+  color: #676767;
+}
+
+#editingContext input::placeholder,
+#editingContext select::placeholder {
+  color: #676767;
+}
+
+#editingContext input:focus::-moz-placeholder, #editingContext select:focus::-moz-placeholder {
+  color: #9b9b9b;
+}
+
+#editingContext input:focus::placeholder,
+#editingContext select:focus::placeholder {
+  color: #9b9b9b;
+}
+
+#editingContext option,
+#pluginEditingContext option {
+  background-color: #212121;
+  color: white;
+  border: none;
+  border-radius: 10px;
+  padding: 10px;
+  font-size: 20px;
+  text-align: center;
+  -webkit-appearance: textfield;
+     -moz-appearance: textfield;
+          appearance: textfield;
+  outline: none;
+  border: none;
+  box-shadow: none;
+  box-sizing: border-box;
+  height: calc(100% - 10px);
+  width: calc(100% - 10px);
+  margin: 5px;
+  letter-spacing: 5px;
+}
+
+#editingContext input:hover,
+#pluginEditingContext input:hover {
+  background-color: #424242;
+}
+
+#editingContext input:focus,
+#pluginEditingContext input:focus {
+  background-color: #2f2f2f;
+}
+
+#editingContext #widthP {
+  grid-area: 2/1/3/2;
+}
+
+#editingContext #width {
+  grid-area: 2/2/3/3;
+}
+
+#editingContext #heightP {
+  grid-area: 3/1/4/2;
+}
+
+#editingContext #height {
+  grid-area: 3/2/4/3;
+}
+
+#editingContext #resizeMethodP {
+  grid-area: 4/1/5/2;
+}
+
+#editingContext #resizeMethod {
+  grid-area: 4/2/5/3;
+}
+
+#editingContext #paddingXP {
+  grid-area: 5/1/6/2;
+}
+
+#editingContext #paddingX {
+  grid-area: 5/2/6/3;
+}
+
+#editingContext #paddingYP {
+  grid-area: 6/1/7/2;
+}
+
+#editingContext #paddingY {
+  grid-area: 6/2/7/3;
+}
+
+#editingContext #offsetXP {
+  grid-area: 7/1/8/2;
+}
+
+#editingContext #offsetX {
+  grid-area: 7/2/8/3;
+}
+
+#editingContext #offsetYP {
+  grid-area: 8/1/9/2;
+}
+
+#editingContext #offsetY {
+  grid-area: 8/2/9/3;
+}
+
+#editingContext #backgroundLedStripMethodP {
+  grid-area: 9/1/10/2;
+}
+
+#editingContext #backgroundLedStripMethod {
+  grid-area: 9/2/10/3;
+}
+
+#editingContext #backgroundImageMethodTimingP {
+  grid-area: 10/1/11/2;
+}
+
+#editingContext #backgroundImageMethodTiming {
+  grid-area: 10/2/11/3;
+}
+
+#editingContext #backgroundBrightnessP {
+  grid-area: 11/1/12/2;
+}
+
+#editingContext #backgroundBrightness {
+  grid-area: 11/2/12/3;
+}
+
+#editingContext #brightnessP {
+  grid-area: 12/1/13/2;
+}
+
+#editingContext #brightness {
+  grid-area: 12/2/13/3;
+}
+
+#editingContext #speedMultiplyerP {
+  grid-area: 13/1/14/2;
+}
+
+#editingContext #speedMultiplyer {
+  grid-area: 13/2/14/3;
+}
+
+#editingContext #fdelayP {
+  grid-area: 14/1/15/2;
+}
+
+#editingContext #fdelay {
+  grid-area: 14/2/15/3;
+}
+
+#editingContext #countP {
+  grid-area: 15/1/16/2;
+}
+
+#editingContext #count {
+  grid-area: 15/2/16/3;
+}
+
+#editingContext #loopP {
+  grid-area: 16/1/17/2;
+}
+
+#editingContext #loop {
+  grid-area: 16/2/17/3;
+}
+
+#editingContext p {
+  letter-spacing: 10px;
+  text-transform: uppercase;
+  font-size: 15px;
+  text-align: start;
+  width: calc(100% - 10px);
+  margin-left: 5px;
+  height: 50%;
+}
+
+#editingContext[mode=gif] #speedMultiplyerP,
+#editingContext[mode=gif] #speedMultiplyer,
+#editingContext[mode=gif] #fdelayP,
+#editingContext[mode=gif] #fdelay,
+#editingContext[mode=gif] #countP,
+#editingContext[mode=gif] #count,
+#editingContext[mode=gif] #loopP,
+#editingContext[mode=gif] #loop,
+#editingContext[mode=gif] #backgroundImageMethodTimingP,
+#editingContext[mode=gif] #backgroundImageMethodTiming {
+  display: block;
+}
+
+#editingContext[mode=image] #fdelayP,
+#editingContext[mode=image] #fdelay,
+#editingContext[mode=image] #speedMultiplyerP,
+#editingContext[mode=image] #speedMultiplyer,
+#editingContext[mode=image] #countP,
+#editingContext[mode=image] #count,
+#editingContext[mode=image] #loopP,
+#editingContext[mode=image] #loop,
+#editingContext[mode=image] #backgroundImageMethodTimingP,
+#editingContext[mode=image] #backgroundImageMethodTiming {
+  display: none;
+}
+
+#editingContext {
+  overflow-y: auto;
+  overflow-x: hidden;
+}
+
+#save {
+  position: sticky;
+  bottom: 0px;
+}
+
+#editingContext[mode=image] #save {
+  grid-area: 15/1/16/3;
+}
+
+#editingContext[mode=gif] #save {
+  grid-area: 17/1/18/3;
+}
+
+#editingContext #save, #pluginEditingContext #pluginsave {
+  width: calc(100% - 10px);
+  background-color: #212121;
+  color: white;
+  border: none;
+  border-radius: 10px;
+  padding: 10px;
+  font-size: 20px;
+  text-align: center;
+  -webkit-appearance: textfield;
+     -moz-appearance: textfield;
+          appearance: textfield;
+  outline: none;
+  border: none;
+  box-shadow: none;
+  cursor: pointer;
+  -webkit-user-select: none;
+     -moz-user-select: none;
+          user-select: none;
+  letter-spacing: 10px;
+  text-transform: uppercase;
+  margin: 5px;
+  box-sizing: border-box;
+}
+
+#editingContext #save:hover, #pluginEditingContext #pluginsave:hover {
+  background-color: #424242;
+}
+
+#editingContext #save:active, #pluginEditingContext #pluginsave:active {
+  background-color: #2f2f2f;
+}
+
+#editingPlugin {
+  position: fixed;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  width: 70%;
+  height: 70%;
+  background-color: #171717;
+  color: white;
+  text-align: center;
+  border-radius: 10px;
+  display: flex;
+  justify-content: center;
+  padding: 10px;
+  display: none;
+}
+
+#editingPlugin[open] {
+  display: block;
+}
+
+#pluginEditingContext {
+  width: 100%;
+  height: 100%;
+  margin: 0;
+  padding: 0;
+  display: grid;
+  grid-template-columns: 30% 70%;
+  grid-template-rows: repeat(5, 1fr) 5fr 1fr;
+  grid-column-gap: 0px;
+  grid-row-gap: 0px;
+}
+
+#pluginEditingContext #pluginName {
+  grid-area: 1/1/2/3;
+  font-size: 30px;
+  text-transform: uppercase;
+  letter-spacing: 10px;
+  color: white;
+  text-align: center;
+  -webkit-user-select: none;
+     -moz-user-select: none;
+          user-select: none;
+  cursor: default;
+  position: sticky;
+  top: 0px;
+  background-color: #171717;
+  z-index: 100;
+}
+
+#pluginEditingContext #descriptionP {
+  grid-area: 2/1/3/2;
+}
+
+#pluginEditingContext #description {
+  grid-area: 2/2/3/3;
+}
+
+#pluginEditingContext #versionP {
+  grid-area: 3/1/4/2;
+}
+
+#pluginEditingContext #version {
+  grid-area: 3/2/4/3;
+}
+
+#pluginEditingContext #uploadedP {
+  grid-area: 4/1/5/2;
+}
+
+#pluginEditingContext #uploaded {
+  grid-area: 4/2/5/3;
+}
+
+#pluginEditingContext #settingsP {
+  grid-area: 5/1/6/3;
+  -webkit-user-select: none;
+     -moz-user-select: none;
+          user-select: none;
+}
+
+#pluginEditingContext #settings {
+  grid-area: 6/1/7/3;
+}
+
+#pluginEditingContext p {
+  letter-spacing: 10px;
+  text-transform: uppercase;
+  font-size: 15px;
+  text-align: start;
+  width: calc(100% - 10px);
+  margin-left: 5px;
+  height: 50%;
+}
+
+#pluginEditingContext p[id$=P]:not([id=settingsP]) {
+  border-bottom: 1px solid #333333;
+  -webkit-user-select: none;
+     -moz-user-select: none;
+          user-select: none;
+}
+
+#settingsP {
+  margin-bottom: 0;
+  padding-bottom: 0;
+}
+
+#pluginEditingContext #settings {
+  overflow-y: auto;
+  overflow-x: hidden;
+}
+
+#pluginEditingContext #settings table {
+  width: 100%;
+  height: auto;
+  border-collapse: collapse;
+  letter-spacing: 5px;
+  text-transform: uppercase;
+  font-size: 20px;
+  font-weight: bolder;
+  -webkit-text-decoration: solid;
+          text-decoration: solid;
+}
+
+#pluginEditingContext #settings table thead {
+  -webkit-user-select: none;
+     -moz-user-select: none;
+          user-select: none;
+  position: sticky;
+  top: 0px;
+  background-color: #171717;
+}
+
+#pluginEditingContext #settings tbody td {
+  padding-top: 10px;
+  padding-bottom: 10px;
+}
+
+#pluginEditingContext #pluginsave {
+  grid-area: 7/1/8/3;
+}
+
+.empty {
+  position: relative;
+}
+
+.empty::before {
+  content: "";
+  position: absolute;
+  top: 50%;
+  left: 5px;
+  transform: translateY(-50%);
+  width: 50%;
+  height: 1px;
+  background-color: white;
+}
+
+#nameTh {
+  width: 30% !important;
+}
+
+#valueTh {
+  width: 45% !important;
+}
+
+#defaultTh {
+  width: 25% !important;
+}
+
+.value {
+  width: 100%;
+  resize: vertical;
+  overflow: auto;
+  background-color: #212121;
+  color: white;
+  border: none;
+  border-radius: 10px;
+  padding: 10px;
+  font-size: 15px;
+  text-align: center;
+  -webkit-appearance: textfield;
+     -moz-appearance: textfield;
+          appearance: textfield;
+  outline: none;
+  border: none;
+  box-shadow: none;
+  letter-spacing: 2px;
+  margin: 5px;
+  box-sizing: border-box;
+  height: calc(100% - 10px);
+  width: calc(100% - 10px);
+  outline: none;
+}/*# sourceMappingURL=allStyles.css.map */

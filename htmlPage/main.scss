@@ -1,0 +1,741 @@
+@use "Variables.scss" as *;
+#navBar{
+    margin-left: 10px;
+    width: calc(100% - 20px);
+    box-sizing: content-box;
+    background-color: #333;
+    color: white;
+    text-align: center;
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+}
+
+.navBarItem{
+    width: 33%;
+    height: 100%;
+    padding: 10px;
+    margin-left: 10px;
+    margin-right: 10px;
+    user-select: none;
+    font-size: 20px;
+    letter-spacing: 25px;
+    text-transform: uppercase;
+}
+
+.navBarItem.selected{
+    background-color: $gray-800 !important;
+    margin: 0;
+    width: calc(33% + 20px);
+    transition: width 0.3s, margin 0.3s, background-color 0.3s;
+}
+
+.navBarItem:hover{
+    background-color: $gray-600;
+    cursor: pointer;
+}
+
+.navBarItem:active{
+    background-color: $gray-700;
+}
+
+.contentList{
+    height: 85%;
+    margin-top: 20px;
+    margin-left: 10px;
+    width: calc(100% - 20px);
+    background-color: $gray-900;
+}
+
+.contentList tr[selected]{
+    background-color: $gray-600 !important;
+}
+
+.contentList table{
+    width: 100%;
+    height: auto;
+    border-collapse: collapse;
+}
+
+.contentList table thead{
+    color: white;
+    height: 50px;
+    max-height: 50px;
+    background-color: lighten($gray-900, 2%);
+}
+
+.contentList table thead tr{
+    border-bottom: 2px solid darken(white, 80%);
+    text-transform: uppercase;
+    font-size: 20px;
+    letter-spacing: 5px;
+}
+
+.contentList table thead th{
+    padding: 10px;
+    text-align: center;
+}
+
+.contentList table thead th:first-child{
+    width: 60% !important;
+}
+
+.contentList table thead th:last-child{
+    width: 20% !important;
+}
+
+.error{
+    color: mix(red, $gray-600, 10%);
+}
+
+.contentList table thead th{
+    width: 10%;
+}
+
+.contentList table tbody{
+    color: white;
+    height: auto;
+    max-height: 50px;
+}
+
+#contentListBodyImages, #contentListBodyPlugins, #contentListBodyGif{
+    text-align: center;
+    text-transform: uppercase;
+    letter-spacing: 5px;
+    font-size: 18px;
+}
+
+#contentListBodyImages tr, #contentListBodyPlugins tr, #contentListBodyGif tr{
+    border-bottom: 1px solid darken(white, 80%);
+    height: 70px;
+    user-select: none;
+    cursor: pointer;
+}
+
+#contentListBodyImages tr:hover, #contentListBodyPlugins tr:hover, #contentListBodyGif tr:hover{
+    background-color: $gray-800;
+}
+
+#contentListBodyImages tr:active, #contentListBodyPlugins tr:active, #contentListBodyGif tr:active,
+#contentListBodyImages tr[selected], #contentListBodyPlugins tr[selected], #contentListBodyGif tr[selected]{
+    background-color: $gray-700;
+}
+
+
+
+[selected="image"]{
+    #contentListImages{
+        display: block;
+        overflow-y: scroll;
+        thead{
+            position: sticky;
+            top: 0px;
+        }
+    }
+    #contentListPlugins, #contentListGifs{
+        display: none;
+    }
+}
+
+[selected="plugin"]{
+    #contentListPlugins{
+        display: block;
+        overflow-y: scroll;
+        thead{
+            position: sticky;
+            top: 0px;
+        }
+    }
+    #contentListImages, #contentListGifs{
+        display: none;
+    }
+}
+
+[selected="animation"]{
+    #contentListGifs{
+        display: block;
+        overflow-y: scroll;
+        thead{
+            position: sticky;
+            top: 0px;
+        }
+    }
+    #contentListImages, #contentListPlugins{
+        display: none;
+    }
+}
+
+.footerOptions{
+    margin-left: 10px;
+    margin-top: 20px;
+    width: calc(100% - 20px);
+    background-color: $gray-900;
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+}
+
+.footerOptions div{
+    width: 25%;
+    height: 100%;
+    padding: 10px;
+    margin-left: 10px;
+    margin-right: 10px;
+    user-select: none;
+    font-size: 20px;
+    letter-spacing: 10px;
+    text-transform: uppercase;
+    color: white;
+    text-align: center;
+    cursor: pointer;
+}
+
+.footerOptions div:hover{
+    background-color: $gray-600;
+}
+
+.footerOptions div:active{
+    background-color: $gray-700;
+}
+
+.footerOptions div[delete]{
+    background-color: mix(red, $gray-900, 5%) !important;
+}
+
+.footerOptions div[delete]:hover{
+    background-color: mix(red, $gray-900, 10%) !important;
+}
+
+.footerOptions div[delete]:active{
+    background-color: mix(red, $gray-900, 15%) !important;
+}
+
+#editingDialog{
+    position: fixed;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    width: 70%;
+    height: 50%;
+    background-color: $gray-900;
+    color: white;
+    text-align: center;
+    border-radius: 10px;
+    display: flex;
+    justify-content: center;
+    padding: 10px;
+    display: none;
+}
+
+#editingDialog[open]{
+    display: block !important;
+}
+
+#editingContext{
+    width: 100%;
+    height: 100%;
+    margin: 0;
+    padding: 0;
+    display: grid;
+    grid-template-columns: 30% 70%;
+    grid-column-gap: 0px;
+    grid-row-gap: 0px;
+}
+
+#editingContext[mode="gif"]{
+    grid-template-rows: repeat(17, 1fr);
+}
+
+#editingContext[mode="image"]{
+    grid-template-rows: repeat(14, 1fr);
+}
+
+#editingContext #name{
+    grid-area: 1 / 1 / 2 / 3;
+    font-size: 30px;
+    text-transform: uppercase;
+    letter-spacing: 10px;
+    color: white;
+    text-align: center;
+    user-select: none;
+    cursor: default;
+    position: sticky;
+    top: 0px;
+    background-color: $gray-900;
+    z-index: 100;
+}
+
+#editingContext p {
+    border-bottom: 1px solid darken(white, 80%);
+}
+
+#editingContext input,
+#editingContext select{
+    width: 80%;
+    height: 50%;
+    background-color: $gray-800;
+    color: white;
+    border: none;
+    border-radius: 10px;
+    padding: 10px;
+    font-size: 20px;
+    text-align: center;
+    appearance: textfield;
+    outline: none;
+    border: none;
+    box-shadow: none;  
+    box-sizing: border-box;
+    height: calc(100% - 10px);
+    width: calc(100% - 10px);
+    margin: 5px;
+    letter-spacing: 5px;
+}
+
+#editingContext select,
+#pluginEditingContext select{
+    width: 80%;
+    height: 50%;
+    background-color: $gray-800;
+    color: white;
+    border: none;
+    border-radius: 10px;
+    padding: 10px;
+    font-size: 20px;
+    text-align: center;
+    appearance: textfield;
+    outline: none;
+    border: none;
+    box-shadow: none;  
+    box-sizing: border-box;
+    height: calc(100% - 10px);
+    width: calc(100% - 10px);
+    margin: 5px;
+    letter-spacing: 5px;
+}
+
+#editingContext input::placeholder, 
+#editingContext select::placeholder{
+    color: $gray-500;
+}
+
+#editingContext input:focus::placeholder, 
+#editingContext select:focus::placeholder{
+    color: $gray-400;
+}
+
+#editingContext option, 
+#pluginEditingContext option{
+    background-color: $gray-800;
+    color: white;
+    border: none;
+    border-radius: 10px;
+    padding: 10px;
+    font-size: 20px;
+    text-align: center;
+    appearance: textfield;
+    outline: none;
+    border: none;
+    box-shadow: none;  
+    box-sizing: border-box;
+    height: calc(100% - 10px);
+    width: calc(100% - 10px);
+    margin: 5px;
+    letter-spacing: 5px;
+}
+
+#editingContext input:hover,
+#pluginEditingContext input:hover{
+    background-color: $gray-600;
+}
+
+#editingContext input:focus,
+#pluginEditingContext input:focus{
+    background-color: $gray-700;
+}
+
+#editingContext #widthP{
+    grid-area: 2 / 1 / 3 / 2; 
+}
+
+#editingContext #width{
+    grid-area: 2 / 2 / 3 / 3; 
+}
+
+#editingContext #heightP{
+    grid-area: 3 / 1 / 4 / 2;
+}
+
+#editingContext #height{
+    grid-area: 3 / 2 / 4 / 3;
+}
+
+#editingContext #resizeMethodP{
+    grid-area: 4 / 1 / 5 / 2;
+}
+
+#editingContext #resizeMethod{
+    grid-area: 4 / 2 / 5 / 3;
+}
+
+#editingContext #paddingXP{
+    grid-area: 5 / 1 / 6 / 2;
+}
+
+#editingContext #paddingX{
+    grid-area: 5 / 2 / 6 / 3;
+}
+
+#editingContext #paddingYP{
+    grid-area: 6 / 1 / 7 / 2;
+}
+
+#editingContext #paddingY{
+    grid-area: 6 / 2 / 7 / 3;
+}
+
+#editingContext #offsetXP{
+    grid-area: 7 / 1 / 8 / 2;
+}
+
+#editingContext #offsetX{
+    grid-area: 7 / 2 / 8 / 3;
+}
+
+#editingContext #offsetYP{
+    grid-area: 8 / 1 / 9 / 2;
+}
+
+#editingContext #offsetY{
+    grid-area: 8 / 2 / 9 / 3;
+}
+
+#editingContext #backgroundLedStripMethodP{
+    grid-area: 9 / 1 / 10 / 2; 
+}
+
+#editingContext #backgroundLedStripMethod{
+    grid-area: 9 / 2 / 10 / 3; 
+}
+
+#editingContext #backgroundImageMethodTimingP{
+    grid-area: 10 / 1 / 11 / 2; 
+}
+
+#editingContext #backgroundImageMethodTiming{
+    grid-area: 10 / 2 / 11 / 3;
+}
+
+#editingContext #backgroundBrightnessP{
+    grid-area: 11 / 1 / 12 / 2; 
+}
+
+#editingContext #backgroundBrightness{
+    grid-area: 11 / 2 / 12 / 3; 
+}
+
+#editingContext #brightnessP{
+    grid-area: 12 / 1 / 13 / 2; 
+}
+
+#editingContext #brightness{
+    grid-area: 12 / 2 / 13 / 3; 
+}
+
+#editingContext #speedMultiplyerP{
+    grid-area: 13 / 1 / 14 / 2; 
+}
+
+#editingContext #speedMultiplyer{
+    grid-area: 13 / 2 / 14 / 3; 
+}
+
+#editingContext #fdelayP{
+    grid-area: 14 / 1 / 15 / 2;
+}
+
+#editingContext #fdelay{
+    grid-area: 14 / 2 / 15 / 3;
+}
+
+#editingContext #countP{
+    grid-area: 15 / 1 / 16 / 2;
+}
+
+#editingContext #count{
+    grid-area: 15 / 2 / 16 / 3;
+}
+
+#editingContext #loopP{
+    grid-area: 16 / 1 / 17 / 2;
+}
+
+#editingContext #loop{
+    grid-area: 16 / 2 / 17 / 3;
+}
+
+#editingContext p{
+    letter-spacing: 10px;
+    text-transform: uppercase;
+    font-size: 15px;
+    text-align: start;
+    width: calc(100% - 10px);
+    margin-left: 5px;
+    height: 50%;
+}
+
+#editingContext[mode="gif"] #speedMultiplyerP,
+#editingContext[mode="gif"] #speedMultiplyer,
+#editingContext[mode="gif"] #fdelayP,
+#editingContext[mode="gif"] #fdelay,
+#editingContext[mode="gif"] #countP,
+#editingContext[mode="gif"] #count,
+#editingContext[mode="gif"] #loopP,
+#editingContext[mode="gif"] #loop,
+#editingContext[mode="gif"] #backgroundImageMethodTimingP,
+#editingContext[mode="gif"] #backgroundImageMethodTiming{
+    display: block;
+}
+
+#editingContext[mode="image"] #fdelayP,
+#editingContext[mode="image"] #fdelay,
+#editingContext[mode="image"] #speedMultiplyerP,
+#editingContext[mode="image"] #speedMultiplyer,
+#editingContext[mode="image"] #countP,
+#editingContext[mode="image"] #count,
+#editingContext[mode="image"] #loopP,
+#editingContext[mode="image"] #loop,
+#editingContext[mode="image"] #backgroundImageMethodTimingP,
+#editingContext[mode="image"] #backgroundImageMethodTiming{
+    display: none;
+}
+
+#editingContext{
+    overflow-y: auto;
+    overflow-x: hidden;
+}
+
+#save{
+    position: sticky;
+    bottom: 0px;
+}
+
+#editingContext[mode="image"] #save{
+    grid-area: 15 / 1 / 16 / 3;
+}
+
+#editingContext[mode="gif"] #save{
+    grid-area: 17 / 1 / 18 / 3;
+}
+
+#editingContext #save, #pluginEditingContext #pluginsave{
+    width: calc(100% - 10px);
+    background-color: $gray-800;
+    color: white;
+    border: none;
+    border-radius: 10px;
+    padding: 10px;
+    font-size: 20px;
+    text-align: center;
+    appearance: textfield;
+    outline: none;
+    border: none;
+    box-shadow: none;
+    cursor: pointer;
+    user-select: none;
+    letter-spacing: 10px;
+    text-transform: uppercase;
+    margin: 5px;
+    box-sizing: border-box;
+}
+
+#editingContext #save:hover, #pluginEditingContext #pluginsave:hover{
+    background-color: $gray-600;
+}
+
+#editingContext #save:active, #pluginEditingContext #pluginsave:active{
+    background-color: $gray-700;
+}
+
+#editingPlugin{
+    position: fixed;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    width: 70%;
+    height: 70%;
+    background-color: $gray-900;
+    color: white;
+    text-align: center;
+    border-radius: 10px;
+    display: flex;
+    justify-content: center;
+    padding: 10px;
+    display: none;
+}
+
+#editingPlugin[open]{
+    display: block;
+}
+
+#pluginEditingContext{
+    width: 100%;
+    height: 100%;
+    margin: 0;
+    padding: 0;
+    display: grid;
+    grid-template-columns: 30% 70%;
+    grid-template-rows: repeat(5, 1fr) 5fr 1fr;
+    grid-column-gap: 0px;
+    grid-row-gap: 0px; 
+}
+
+#pluginEditingContext #pluginName{
+    grid-area: 1 / 1 / 2 / 3;
+    font-size: 30px;
+    text-transform: uppercase;
+    letter-spacing: 10px;
+    color: white;
+    text-align: center;
+    user-select: none;
+    cursor: default;
+    position: sticky;
+    top: 0px;
+    background-color: $gray-900;
+    z-index: 100;
+}
+
+
+#pluginEditingContext #descriptionP{
+    grid-area: 2 / 1 / 3 / 2;
+}
+
+#pluginEditingContext #description{
+    grid-area: 2 / 2 / 3 / 3;
+}
+
+#pluginEditingContext #versionP{
+    grid-area: 3 / 1 / 4 / 2;
+}
+
+#pluginEditingContext #version{
+    grid-area: 3 / 2 / 4 / 3;
+}
+
+#pluginEditingContext #uploadedP{
+    grid-area: 4 / 1 / 5 / 2;
+}
+
+#pluginEditingContext #uploaded{
+    grid-area: 4 / 2 / 5 / 3;
+}
+
+#pluginEditingContext #settingsP{
+    grid-area: 5 / 1 / 6 / 3;
+    user-select: none;
+}
+
+#pluginEditingContext #settings{
+    grid-area: 6 / 1 / 7 / 3;
+}
+
+#pluginEditingContext p{
+    letter-spacing: 10px;
+    text-transform: uppercase;
+    font-size: 15px;
+    text-align: start;
+    width: calc(100% - 10px);
+    margin-left: 5px;
+    height: 50%;
+}
+
+#pluginEditingContext p[id$="P"]:not([id="settingsP"]) {
+    border-bottom: 1px solid darken(white, 80%);
+    user-select: none;
+}
+
+#settingsP{
+    margin-bottom: 0;
+    padding-bottom: 0;
+}
+
+#pluginEditingContext #settings{
+    overflow-y: auto;
+    overflow-x: hidden;
+}
+
+#pluginEditingContext #settings table{
+    width: 100%;
+    height: auto;
+    border-collapse: collapse;
+    letter-spacing: 5px;
+    text-transform: uppercase;
+    font-size: 20px;
+    font-weight: bolder;
+    text-decoration: solid;
+}
+
+#pluginEditingContext #settings table thead{
+    user-select: none;
+    position: sticky;
+    top: 0px;
+    background-color: $gray-900;
+}
+
+#pluginEditingContext #settings tbody td{
+    padding-top: 10px;
+    padding-bottom: 10px;
+}
+
+#pluginEditingContext #pluginsave{
+    grid-area: 7 / 1 / 8 / 3;
+}
+
+.empty{
+    position: relative;
+}
+
+.empty::before{
+    content: "";
+    position: absolute;
+    top: 50%;
+    left: 5px;
+    transform: translateY(-50%);
+    width: 50%;
+    height: 1px;
+    background-color: white;
+}
+
+#nameTh{
+    width: 30% !important;
+}
+
+#valueTh{
+    width: 45% !important;
+}
+
+#defaultTh{
+    width: 25% !important;
+}
+
+.value{
+    width: 100%;
+    resize: vertical;
+    overflow: auto;
+    background-color: $gray-800;
+    color: white;
+    border: none;
+    border-radius: 10px;
+    padding: 10px;
+    font-size: 15px;
+    text-align: center;
+    appearance: textfield;
+    outline: none;
+    border: none;
+    box-shadow: none;
+    letter-spacing: 2px;
+    margin: 5px;
+    box-sizing: border-box;
+    height: calc(100% - 10px);
+    width: calc(100% - 10px);
+    outline: none;
+}
